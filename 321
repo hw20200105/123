@@ -1,0 +1,41 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h> 
+int main(void) { 
+int i, j, min,t; int number[5], ch[5], math[5], total[5];
+
+for (int i = 0; i <= 4; i++) {
+
+	printf("輸入編號 %d 學生的國文成績:",i+1);
+	scanf("%d", &ch[i]);
+	printf("輸入編號 %d 學生的數學成績:",i+1);
+	scanf("%d", &math[i]);
+	total[i] = math[i] + ch[i];
+	number[i]=i+1;
+
+}
+
+
+
+for (i = 5; i > 0; i--) {
+	min = i;
+	for (j = i; j >= 0; j--)
+		if (total[min] > total[j]) min = j;
+	t = total[min]; total[min] =total[i]; total[i] = t;
+	t = number[min]; number[min] =number[i]; number[i] = t;
+	
+
+}
+
+
+
+
+
+for(int i=0;i<5;i++){
+	printf("編號%3d國文%5d數學%4d總分%4d\n", number[i], ch[i], math[i], total[i]);
+
+}
+
+system("pause"); return(0);
+}
+
